@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const HistoryContainer = styled.main`
+  max-height:35vw;
+
   flex: 1;
   padding: 3.5rem;
 
@@ -15,14 +17,28 @@ export const HistoryContainer = styled.main`
 
 export const HistoryList = styled.div`
   flex: 1;
-  overflow: auto;
+  overflow-y: scroll;
   margin-top: 2rem;
 
+  ::-webkit-scrollbar{
+    width: 0.875rem;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: ${props => props.theme['gray-600']};
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme['gray-500']};    
+    border-radius: 8px;
+    border: 2px solid ${props => props.theme['gray-600']};  
+}
+  
   table {
     width: 100%;
     border-collapse: collapse;
     min-width: 600px;
-
+    border: 4px solid transparent;
     th {
       background-color: ${(props) => props.theme['gray-600']};
       padding: 1rem;
